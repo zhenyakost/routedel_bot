@@ -13,9 +13,11 @@ const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 
+fetch(`https://api.telegram.org/bot${TOKEN}/setWebHook?url=https://routedelbot-ere3t2rf.netlify.app/.netlify/functions/bot`);
+
 bot.start((ctx) =>
   ctx.reply(`Привіт, це сервіс OrderFood 😋
-Замовляй товари онлайн та отримуй їх у місці де є кур’єр.`)
+Замовляй товари онлайн та отримуй їх у місці, де є кур’єр.`)
 );
 
 bot.on('pre_checkout_query', (ctx) => ctx.answerPreCheckoutQuery(true)) // ответ на предварительный запрос по оплате
