@@ -43,7 +43,7 @@ bot.on('successful_payment', async (ctx, next) => {
 
 bot.launch();
 
-exports.handler = async event => {
-    await bot.handleUpdate(JSON.parse(event.body));
-    return { statusCode: 200, body: '' };
-    }
+exports.handler = async (event) => {
+    console.log("Received an update from Telegram!", event.body);
+    return { statusCode: 200 };
+  };
