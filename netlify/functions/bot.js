@@ -13,7 +13,9 @@ const app = initializeApp(firebaseConfig);
 
 const database = getDatabase(app);
 
-fetch(`https://api.telegram.org/bot${TOKEN}/setWebHook?url=https://routedelbot-ere3t2rf.netlify.app/.netlify/functions/bot`);
+axios.post(`https://api.telegram.org/bot${TOKEN}/setWebHook`, JSON.stringify({
+    url:'https://routedelbot-ere3t2rf.netlify.app/.netlify/functions/bot'
+}), {headers:{'Content-Type':'application/json'}});
 
 bot.start((ctx) =>
   ctx.reply(`Привіт, це сервіс OrderFood 😋
