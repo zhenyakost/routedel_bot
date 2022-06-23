@@ -45,9 +45,8 @@ bot.on('successful_payment', async (ctx, next) => {
   }), {headers: {'Content-Type':'application/json'}})}))
 })
 
-bot.launch();
-
 exports.handler = async (event) => {
+    await bot.launch();
     await bot.handleUpdate(JSON.parse(event.body));
     return { statusCode: 200, body: '' };
 };
